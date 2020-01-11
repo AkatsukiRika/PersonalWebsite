@@ -1,0 +1,164 @@
+﻿@model PersonalWebsite.Models.Profile
+
+<body class="c1">
+
+    <div id="container">
+
+        <div id="contents">
+
+            <div id="main">
+
+                <div class="clear">
+
+                    <aside class="fl w25"><img src="../../images/photo1.png" alt=""></aside>
+
+                    <section class="fr w70">
+                        <h2>PROFILE<span>About the Owner</span></h2>
+                        <p>
+                            @Html.Raw(Html.Encode(Model.ProfileDescription).Replace("\n", "<br />"))
+                        </p>
+                        <h3>Basic Profile</h3>
+                        <p>
+                            @Html.Raw(Html.Encode(Model.BasicProfile).Replace("\n", "<br />"))
+                        </p>
+                        <h3>Information</h3>
+                        <p>
+                            @Html.Raw(Html.Encode(Model.Information).Replace("\n", "<br />"))
+                        </p>
+                    </section>
+
+                </div>
+
+                <!--<div class="clear">
+
+                    <aside class="fr w25"><img src="images/photo2.png" alt=""></aside>
+
+                    <section class="fl w70">
+                        <h2 class="r">PROFILE<span>なまえをここにいれます。</span></h2>
+                        <p>
+                            XXXX年生まれ。<br>
+                            ここにプロフィールを入れます。サンプルテキスト。ここにプロフィールを入れます。サンプルテキスト。ここにプロフィールを入れます。サンプルテキスト。ここにプロフィールを入れます。サンプルテキスト。ここにプロフィールを入れます。サンプルテキスト。ここにプロフィールを入れます。サンプルテキスト。ここにプロフィールを入れます。サンプルテキスト。ここにプロフィールを入れます。サンプルテキスト。ここにプロフィールを入れます。サンプルテキスト。
+                        </p>
+                        <p>こちらのブロックは、イラストブロックが、<span class="color1">class=&quot;fr w25&quot;</span>となり、文字ブロックが、<span class="color1">class=&quot;fl w70&quot;</span>です。回り込み(float)の指定を逆にしただけです。</p>
+                    </section>
+
+                </div>-->
+
+                <h2>MUTTER<span>Something that the Owner Want to Say</span></h2>
+
+                <p class="check">
+                    <strong>※Contents in this section may contain other languages.</strong><br>
+                    Content in this section may be in Japanese, Chinese or any other languages.
+                    All of the data in this page is modified in the database.
+                </p>
+                <p>
+                    @Html.Raw(Html.Encode(Model.Mutter).Replace("\n", "<br />"))
+                </p>
+
+                <!--<div class="clear transform1">
+
+                    <aside class="fl w25"><img src="images/photo1.png" alt=""></aside>
+
+                    <section class="fr w70">
+                        <h2>transform1</h2>
+                        <p>アニメーションにしたいブロックなどに、<span class="color1">class=&quot;transform1&quot;</span>とすると、このブロックの動きになります。</p>
+                        <p>
+                            XXXX年生まれ。<br>
+                            ここにプロフィールを入れます。サンプルテキスト。ここにプロフィールを入れます。サンプルテキスト。ここにプロフィールを入れます。サンプルテキスト。ここにプロフィールを入れます。サンプルテキスト。ここにプロフィールを入れます。サンプルテキスト。ここにプロフィールを入れます。サンプルテキスト。ここにプロフィールを入れます。サンプルテキスト。ここにプロフィールを入れます。サンプルテキスト。ここにプロフィールを入れます。サンプルテキスト。
+                        </p>
+                    </section>
+
+                </div>
+
+                <div class="clear transform2">
+
+                    <aside class="fl w25"><img src="images/photo1.png" alt=""></aside>
+
+                    <section class="fr w70">
+                        <h2>transform2</h2>
+                        <p>アニメーションにしたいブロックなどに、<span class="color1">class=&quot;transform2&quot;</span>とすると、このブロックの動きになります。</p>
+                        <p>
+                            XXXX年生まれ。<br>
+                            ここにプロフィールを入れます。サンプルテキスト。ここにプロフィールを入れます。サンプルテキスト。ここにプロフィールを入れます。サンプルテキスト。ここにプロフィールを入れます。サンプルテキスト。ここにプロフィールを入れます。サンプルテキスト。ここにプロフィールを入れます。サンプルテキスト。ここにプロフィールを入れます。サンプルテキスト。ここにプロフィールを入れます。サンプルテキスト。ここにプロフィールを入れます。サンプルテキスト。
+                        </p>
+                    </section>
+
+                </div>
+
+                <div class="clear up">
+
+                    <aside class="fl w25"><img src="images/photo1.png" alt=""></aside>
+
+                    <section class="fr w70">
+                        <h2>up</h2>
+                        <p>アニメーションにしたいブロックなどに、<span class="color1">class=&quot;up&quot;</span>とすると、このブロックの動きになります。</p>
+                        <p>
+                            XXXX年生まれ。<br>
+                            ここにプロフィールを入れます。サンプルテキスト。ここにプロフィールを入れます。サンプルテキスト。ここにプロフィールを入れます。サンプルテキスト。ここにプロフィールを入れます。サンプルテキスト。ここにプロフィールを入れます。サンプルテキスト。ここにプロフィールを入れます。サンプルテキスト。ここにプロフィールを入れます。サンプルテキスト。ここにプロフィールを入れます。サンプルテキスト。ここにプロフィールを入れます。サンプルテキスト。
+                        </p>
+                    </section>
+
+                </div>
+
+                <div class="clear left">
+
+                    <aside class="fl w25"><img src="images/photo1.png" alt=""></aside>
+
+                    <section class="fr w70">
+                        <h2>left</h2>
+                        <p>アニメーションにしたいブロックなどに、<span class="color1">class=&quot;left&quot;</span>とすると、このブロックの動きになります。</p>
+                        <p>
+                            XXXX年生まれ。<br>
+                            ここにプロフィールを入れます。サンプルテキスト。ここにプロフィールを入れます。サンプルテキスト。ここにプロフィールを入れます。サンプルテキスト。ここにプロフィールを入れます。サンプルテキスト。ここにプロフィールを入れます。サンプルテキスト。ここにプロフィールを入れます。サンプルテキスト。ここにプロフィールを入れます。サンプルテキスト。ここにプロフィールを入れます。サンプルテキスト。ここにプロフィールを入れます。サンプルテキスト。
+                        </p>
+                    </section>
+
+                </div>
+
+                <div class="clear right">
+
+                    <aside class="fl w25"><img src="images/photo1.png" alt=""></aside>
+
+                    <section class="fr w70">
+                        <h2>right</h2>
+                        <p>アニメーションにしたいブロックなどに、<span class="color1">class=&quot;right&quot;</span>とすると、このブロックの動きになります。</p>
+                        <p>
+                            XXXX年生まれ。<br>
+                            ここにプロフィールを入れます。サンプルテキスト。ここにプロフィールを入れます。サンプルテキスト。ここにプロフィールを入れます。サンプルテキスト。ここにプロフィールを入れます。サンプルテキスト。ここにプロフィールを入れます。サンプルテキスト。ここにプロフィールを入れます。サンプルテキスト。ここにプロフィールを入れます。サンプルテキスト。ここにプロフィールを入れます。サンプルテキスト。ここにプロフィールを入れます。サンプルテキスト。
+                        </p>
+                    </section>
+
+                </div>-->
+
+            </div>
+            <!--/#main-->
+
+            <div id="sub">
+
+            </div>
+            <!--/#sub-->
+
+        </div>
+        <!--/#contents-->
+
+    </div>
+    <!--/#container-->
+
+    <!--ページの上部に戻る「↑」ボタン-->
+    <p class="nav-fix-pos-pagetop"><a href="#">↑</a></p>
+
+    <!--メニュー開閉ボタン-->
+    <div id="menubar_hdr" class="close"></div>
+
+    <!--メニューの開閉処理条件設定　900px以下-->
+    <script>
+        if (OCwindowWidth() <= 900) {
+            open_close("menubar_hdr", "menubar-s");
+        }
+    </script>
+
+    <!--パララックス用ファイル読み込み-->
+    <script src="~/Scripts/jquery.inview.js"></script>
+    <script src="~/Scripts/jquery.inview_set.js"></script>
+
+</body>

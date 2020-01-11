@@ -1,0 +1,66 @@
+﻿@model PersonalWebsite.Models.News
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>News</legend>
+
+        @Html.HiddenFor(model => model.NewsID)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NewsType)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.NewsType)
+            @Html.ValidationMessageFor(model => model.NewsType)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NewsDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.NewsDate)
+            @Html.ValidationMessageFor(model => model.NewsDate)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ImgSrc)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ImgSrc)
+            @Html.ValidationMessageFor(model => model.ImgSrc)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ImgText)
+        </div>
+        <div class="editor-field">
+            @Html.TextAreaFor(model => model.ImgText)
+            @Html.ValidationMessageFor(model => model.ImgText)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.BigImg)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.BigImg)
+            @Html.ValidationMessageFor(model => model.BigImg)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

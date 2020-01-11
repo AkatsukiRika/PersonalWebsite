@@ -1,0 +1,58 @@
+﻿@model IEnumerable<PersonalWebsite.Models.News>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+    <a href="/Admin/Management">Back to management</a>
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NewsType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NewsDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ImgSrc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ImgText)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BigImg)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NewsType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NewsDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ImgSrc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ImgText)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BigImg)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.NewsID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.NewsID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.NewsID })
+        </td>
+    </tr>
+}
+
+</table>

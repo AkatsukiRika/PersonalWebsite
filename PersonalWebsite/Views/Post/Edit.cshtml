@@ -1,0 +1,58 @@
+﻿@model PersonalWebsite.Models.Post
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Post</legend>
+
+        @Html.HiddenFor(model => model.PostID)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.TableHead)
+        </div>
+        <div class="editor-field">
+            @Html.TextAreaFor(model => model.TableHead)
+            @Html.ValidationMessageFor(model => model.TableHead)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.TableData)
+        </div>
+        <div class="editor-field">
+            @Html.TextAreaFor(model => model.TableData)
+            @Html.ValidationMessageFor(model => model.TableData)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ImgSrc)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ImgSrc)
+            @Html.ValidationMessageFor(model => model.ImgSrc)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Tamidashi)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Tamidashi)
+            @Html.ValidationMessageFor(model => model.Tamidashi)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

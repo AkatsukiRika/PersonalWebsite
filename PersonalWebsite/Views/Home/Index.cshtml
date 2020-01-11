@@ -1,0 +1,154 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!--[if lt IE 10]>
+    <style>
+    .slide1,.slide2,.slide3 {background: url(images/1.jpg) no-repeat center center;}
+    .up, .left, .right, .transform1, .transform2 {opacity:1;}
+    .upstyle, .leftstyle, .rightstyle, .transform1style, .transform2style {transition: 0s 0s;}
+    .up {bottom: 0px;}
+    .left {left: 0px;}
+    .right {right: 0px;}
+    .transform1 {transform: scaleX(1);}
+    </style>
+    <![endif]-->
+
+<style>
+    @("@")import url(https://fonts.googleapis.com/css?family=Open+Sans:800);
+    .text {
+        fill: none;
+        stroke-width: 3;
+        stroke-linejoin: round;
+        stroke-dasharray: 70 330;
+        stroke-dashoffset: 0;
+        -webkit-animation: stroke 6s infinite linear;
+        animation: stroke 6s infinite linear;
+        font: 14em Open Sans, Impact;
+    }
+
+    .text:nth-child(5n+1) {
+        stroke: #F2385A;
+        -webkit-animation-delay: -1.2s;
+        animation-delay: -1.2s;
+    }
+
+    .text:nth-child(5n+2) {
+        stroke: #F5A503;
+        -webkit-animation-delay: -2.4s;
+        animation-delay: -2.4s;
+    }
+
+    .text:nth-child(5n+3) {
+        stroke: #E9F1DF;
+        -webkit-animation-delay: -3.6s;
+        animation-delay: -3.6s;
+    }
+
+    .text:nth-child(5n+4) {
+        stroke: #56D9CD;
+        -webkit-animation-delay: -4.8s;
+        animation-delay: -4.8s;
+    }
+
+    .text:nth-child(5n+5) {
+        stroke: #3AA1BF;
+        -webkit-animation-delay: -6s;
+        animation-delay: -6s;
+    }
+
+    @("@")-webkit-keyframe stroke {
+                100% {
+                    stroke-dashoffset: -400;
+                }
+            }
+
+    @("@")keyframes stroke {
+                100% {
+                    stroke-dashoffset: -400;
+                }
+            }
+
+    svg {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+</style>
+
+
+<body class="home">
+
+    <div id="container">
+
+        <svg version="1.1" id="svg-logo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+             viewBox="0 0 650 220" style="enable-background:new 0 0 650 220;" xml:space="preserve">
+        <symbol id="s-text">
+        <text text-anchor="middle" x="50%" y="50%" dy=".35em">すいスイ</text>
+    </symbol>
+        <use class="text" xlink:href="#s-text"></use>
+        <use class="text" xlink:href="#s-text"></use>
+        <use class="text" xlink:href="#s-text"></use>
+        <use class="text" xlink:href="#s-text"></use>
+        <use class="text" xlink:href="#s-text"></use>
+    </svg>
+
+        <div id="contents">
+
+            <div id="main">
+
+                <section id="mainimg">
+
+                    <h2 class="dn">ANNOUNCEMENT</h2>
+
+                    <a href="news.html"><div class="slide1"><p>This is the personal website of RIKA-P.</p></div></a>
+                    <a href="news.html"><div class="slide2"><p>Powered by ASP.NET MVC with interactive pages.</p></div></a>
+                    <a href="news.html"><div class="slide3"><p>Welcome to Aquarium SuiSui. Have fun here!</p></div></a>
+
+                </section>
+
+            </div>
+            <!--/#main-->
+
+        </div>
+        <!--/#contents-->
+
+        <!--
+        <footer>
+            <small>Copyright&copy; <a href="/Home/Index">RIKA-P</a> All Rights Reserved.</small>
+            <span class="pr"><a href="https://template-party.com/" target="_blank">《Web Design:Template-Party》</a></span>
+        </footer>
+        ==>
+
+    </div>
+    <!--/#container-->
+
+    <!--ページの上部に戻る「↑」ボタン-->
+    <p class="nav-fix-pos-pagetop"><a href="#">↑</a></p>
+
+    <!--メニュー開閉ボタン-->
+    <div id="menubar_hdr" class="close"></div>
+
+    <!--メニューの開閉処理条件設定　900px以下-->
+    <script>
+    if (OCwindowWidth() <= 900) {
+	    open_close("menubar_hdr", "menubar-s");
+    }
+    </script>
+
+    <!--ロゴアニメーション-->
+    <script>
+    new Vivus('svg-logo', {
+	    start: 'autostart',
+	    duration: 150,	//アニメーションの速度
+    });
+    </script>
+
+    <!--パララックス用ファイル読み込み-->
+    <script src="~/Scripts/jquery.inview.js"></script> <!--It seems that it's useless-->
+    <script src="~/Scripts/jquery.inview_set.js"></script>
+
+</body>
+</html>

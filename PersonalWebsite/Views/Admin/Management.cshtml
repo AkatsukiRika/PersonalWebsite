@@ -1,0 +1,41 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>管理者ログイン</title>
+    <!-- for-mobile-apps -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <!-- //for-mobile-apps -->
+    <link href="~/Content/adminStyle.css" rel="stylesheet" type="text/css" media="all" />
+
+</head>
+<body>
+    <!-- main -->
+    <div class="main">
+        <h1>
+            管理したいデータを選択してください
+        </h1>
+        <ul>
+            <li><center><a href="/News">[ News ]</a></center></li>
+            <li><center><a href="/Profile">[ Profile ]</a></center></li>
+            <li><center><a href="/Post">[ Post ]</a></center></li>
+            <li><center><a href="/Contact">[ Contact ]</a></center></li>
+            <li><center><a href="/Article">[ Article ]</a></center></li>
+            <li><center><a href="/Admin/FileUpload">ファイルアップロード</a></center></li>
+        </ul>
+        <br />
+        <center><a href="/Admin/Logout">>> ここをクリックしてログアウト <<</a></center>
+</div>
+    <div class="footer">
+        <p>
+            &copy 2020 RIKA. All rights reserved
+        </p>
+    </div>
+    <!-- //main -->
+</body>
+</html>

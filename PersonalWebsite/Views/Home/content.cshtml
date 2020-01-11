@@ -1,0 +1,78 @@
+﻿@model PersonalWebsite.Models.Article
+
+<link href="~/Lib/Markdown/css/editormd.css" rel="stylesheet" />
+<link href="~/Lib/Markdown/css/editormd.preview.css" rel="stylesheet" />
+<script src="~/Lib/Markdown/js/editormd.js"></script>
+
+<script>
+    function btnBack() {
+        location.href = "/Home/Article";
+    }
+
+    function btnEdit() {
+        location.href = "/Home/Edit/" + document.getElementsByName("articleID")[0].value;
+    }
+</script>
+
+<style>
+    .btn {
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+</style>
+
+<body class="c1">
+
+    <div id="container">
+
+        <div id="contents">
+
+            <div id="main">
+
+                <section>
+                    <h2>@ViewData["title"]</h2>
+                    <div id="content">
+                        @Html.Raw(Model.ArticleContent.Split('猋')[1])
+                    </div>
+                    <center>
+                        <input class="btn" type="submit" onclick="btnBack()" value="Back" />
+                        <input class="btn" type="button" onclick="btnEdit()" value="Edit" />
+                    </center>
+                    <input name="articleID" type="hidden" value="@ViewData["id"]" />
+                </section>
+
+            </div>
+            <!--/#main-->
+
+            <div id="sub">
+
+            </div>
+            <!--/#sub-->
+
+        </div>
+        <!--/#contents-->
+
+        <footer>
+        </footer>
+
+    </div>
+    <!--/#container-->
+
+    <!--ページの上部に戻る「↑」ボタン-->
+    <p class="nav-fix-pos-pagetop"><a href="#">↑</a></p>
+
+    <!--メニュー開閉ボタン-->
+    <div id="menubar_hdr" class="close"></div>
+
+    <!--メニューの開閉処理条件設定　900px以下-->
+    <script>
+        if (OCwindowWidth() <= 900) {
+            open_close("menubar_hdr", "menubar-s");
+        }
+    </script>
+
+    <!--パララックス用ファイル読み込み-->
+    <script src="js/jquery.inview.js"></script>
+    <script src="js/jquery.inview_set.js"></script>
+
+</body>

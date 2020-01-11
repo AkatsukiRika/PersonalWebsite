@@ -1,0 +1,56 @@
+﻿@model PersonalWebsite.Models.Post
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Post</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.TableHead)
+        </div>
+        <div class="editor-field">
+            @Html.TextAreaFor(model => model.TableHead)
+            @Html.ValidationMessageFor(model => model.TableHead)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.TableData)
+        </div>
+        <div class="editor-field">
+            @Html.TextAreaFor(model => model.TableData)
+            @Html.ValidationMessageFor(model => model.TableData)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ImgSrc)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ImgSrc)
+            @Html.ValidationMessageFor(model => model.ImgSrc)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Tamidashi)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Tamidashi)
+            @Html.ValidationMessageFor(model => model.Tamidashi)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

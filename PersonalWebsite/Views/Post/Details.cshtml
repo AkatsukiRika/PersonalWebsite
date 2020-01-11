@@ -1,0 +1,43 @@
+﻿@model PersonalWebsite.Models.Post
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Post</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TableHead)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TableHead)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TableData)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TableData)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ImgSrc)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ImgSrc)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Tamidashi)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Tamidashi)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.PostID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,50 @@
+﻿@model PersonalWebsite.Models.News
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>News</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.NewsType)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NewsType)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.NewsDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NewsDate)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ImgSrc)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ImgSrc)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ImgText)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ImgText)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.BigImg)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.BigImg)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.NewsID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

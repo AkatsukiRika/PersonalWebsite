@@ -1,0 +1,52 @@
+﻿@model IEnumerable<PersonalWebsite.Models.Profile>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+    <a href="/Admin/Management">Back to management</a>
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ProfileDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BasicProfile)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Information)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Mutter)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProfileDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BasicProfile)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Information)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Mutter)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ProfileID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ProfileID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ProfileID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="AquariumModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Profile">
+          <Key>
+            <PropertyRef Name="ProfileID" />
+          </Key>
+          <Property Name="ProfileID" Type="int" Nullable="false" />
+          <Property Name="ProfileDescription" Type="varchar" MaxLength="1024" />
+          <Property Name="BasicProfile" Type="varchar" MaxLength="2048" />
+          <Property Name="Information" Type="varchar" MaxLength="2048" />
+          <Property Name="Mutter" Type="varchar" MaxLength="2048" />
+        </EntityType>
+        <EntityContainer Name="AquariumModel1StoreContainer">
+          <EntitySet Name="Profile" EntityType="Self.Profile" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AquariumModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Profile">
+          <Key>
+            <PropertyRef Name="ProfileID" />
+          </Key>
+          <Property Name="ProfileID" Type="Int32" Nullable="false" />
+          <Property Name="ProfileDescription" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+          <Property Name="BasicProfile" Type="String" MaxLength="2048" FixedLength="false" Unicode="false" />
+          <Property Name="Information" Type="String" MaxLength="2048" FixedLength="false" Unicode="false" />
+          <Property Name="Mutter" Type="String" MaxLength="2048" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="AquariumEntities3" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Profile" EntityType="Self.Profile" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AquariumModel1StoreContainer" CdmEntityContainer="AquariumEntities3">
+          <EntitySetMapping Name="Profile">
+            <EntityTypeMapping TypeName="AquariumModel1.Profile">
+              <MappingFragment StoreEntitySet="Profile">
+                <ScalarProperty Name="ProfileID" ColumnName="ProfileID" />
+                <ScalarProperty Name="ProfileDescription" ColumnName="ProfileDescription" />
+                <ScalarProperty Name="BasicProfile" ColumnName="BasicProfile" />
+                <ScalarProperty Name="Information" ColumnName="Information" />
+                <ScalarProperty Name="Mutter" ColumnName="Mutter" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

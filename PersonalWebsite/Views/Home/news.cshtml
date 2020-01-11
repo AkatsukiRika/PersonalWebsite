@@ -1,0 +1,123 @@
+﻿@model PersonalWebsite.Models.ViewNews
+@using PagedList.Mvc
+
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+<style>
+    select {
+        background-color: black;
+        color: white;
+    }
+</style>
+
+<body>
+
+    <div id="container">
+
+        <div id="contents">
+
+            <div id="main">
+
+                <section>
+
+                    <h2>NEWS<span>New Information</span></h2>
+
+                    <dl class="news">
+
+                        @foreach (var item in Model.NewsList)
+                        {
+                            string NewsDate = Html.DisplayFor(modelItem => item.NewsDate).ToString().Split(' ')[0];
+                            string NewsType = Html.DisplayFor(modelItem => item.NewsType).ToString();
+                            string SpanClass = "icon";
+                            string ImgSrc = Html.DisplayFor(modelItem => item.ImgSrc).ToString();
+                            string BigImg = Html.DisplayTextFor(modelItem => item.BigImg).ToString();
+                            string ImgClass = "class=\"img\"";
+                            string ImgText = Html.DisplayFor(modelItem => item.ImgText).ToString();
+                            if(BigImg.Equals("False"))
+                            {
+                                ImgClass = "class=\"img\"";
+                            }
+                            else
+                            {
+                                ImgClass = "";
+                            }
+
+                            if (NewsType.Equals("INFORMATION"))
+                            {
+                                SpanClass = "icon";
+                            }
+                            else if (NewsType.Equals("EVENT"))
+                            {
+                                SpanClass = "icon event";
+                            }
+                            else if (NewsType.Equals("MEDIA"))
+                            {
+                                SpanClass = "icon media";
+                            }
+
+                            <dt>@NewsDate<span class="@SpanClass">@NewsType</span></dt>
+                            <dd>
+                                <img src="../../Files/@ImgSrc" alt="" @Html.Raw(ImgClass) />
+                                @ImgText
+                            </dd>
+                        }
+
+                    </dl>
+
+                    <div>
+                        Page @(Model.NewsList.PageCount < Model.NewsList.PageNumber ? 0 : Model.NewsList.PageNumber) of @Model.NewsList.PageCount
+                        @Html.PagedListPager(Model.NewsList, page => Url.Action("News", new { year=Model.year, month=Model.month, type=Model.type, page }))
+                    </div>
+
+                </section>
+
+            </div>
+            <!--/#main-->
+
+            <div id="sub">
+
+                @using (Html.BeginForm("News", "Home", FormMethod.Get))
+                {
+                <h2>ARCHIVE</h2>
+                <ul class="submenu">
+                    <li><br /></li>
+                    <li><center><input type="submit" name="commandName" value="View All" /></center></li>
+                    <li><center>@Html.TextBox("year")</center></li>
+                    <li><center><input type="submit" name="commandName" value="Search by year" /></center></li>
+                    <li><br /></li>
+                    <li><center>@Html.TextBox("yearMonth")</center></li>
+                    <li><center><input type="submit" name="commandName" value="Search by year-month" /></center></li>
+                    <li><br /></li>
+                    <li><center>@Html.DropDownList("type", new SelectList(new[] { "INFORMATION", "EVENT", "MEDIA" }), "")</center></li>
+                    <li><center><input type="submit" name="commandName" value="Search by type" /></center></li>
+                </ul>
+                }
+
+            </div>
+            <!--/#sub-->
+
+        </div>
+        <!--/#contents-->
+
+        <footer>
+        </footer>
+
+    </div>
+    <!--/#container-->
+    <!--ページの上部に戻る「↑」ボタン-->
+    <p class="nav-fix-pos-pagetop"><a href="#">↑</a></p>
+
+    <!--メニュー開閉ボタン-->
+    <div id="menubar_hdr" class="close"></div>
+
+    <!--メニューの開閉処理条件設定　900px以下-->
+    <script>
+        if (OCwindowWidth() <= 900) {
+            open_close("menubar_hdr", "menubar-s");
+        }
+    </script>
+
+    <!--パララックス用ファイル読み込み-->
+    <script src="js/jquery.inview.js"></script>
+    <script src="js/jquery.inview_set.js"></script>
+
+</body>

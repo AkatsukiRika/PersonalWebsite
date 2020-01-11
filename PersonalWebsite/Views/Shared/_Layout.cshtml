@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Aquarium SuiSui</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="The personal website of RIKA-P">
+    <meta name="keywords" content="Music,Vocaloid,Programming,Personal,Web">
+    <link rel="stylesheet" href="~/Content/style.css">
+    <script src="~/Scripts/openclose.js"></script>
+    <script src="~/Scripts/fixmenu_pagetop.js"></script>
+    <script src="js/vivus.js"></script> <!--It seems that it's useless-->
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>-->
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script><!--国内的JQuery源，会比谷歌的快很多-->
+</head>
+
+<body>
+    <div id="container">
+        <header>
+            <h1 id="logo"><a href="/Home/Index"><img src="../../Images/logo.png" alt="Aquarium SuiSui"></a></h1>
+            <!--PC用（901px以上端末）メニュー-->
+            <nav id="menubar">
+                <ul>
+                    <li><a href="/Home/Readme">READ ME</a></li>
+                    <li><a href="/Home/News">NEWS</a></li>
+                    <li><a href="/Home/Profile">PROFILE</a></li>
+                    <li><a href="/Home/Post">POST</a></li>
+                    <li><a href="/Home/Article">ARTICLE</a></li>
+                    <li><a href="/Home/Contact">CONTACT</a></li>
+                    <li><a href="/Admin" target="_blank">ADMIN</a></li>
+                </ul>
+            </nav>
+
+            <!--小さな端末用（900px以下端末）メニュー-->
+            <nav id="menubar-s">
+                <ul>
+                    <li><a href="/Home/Readme">READ ME</a></li>
+                    <li><a href="/Home/News">NEWS</a></li>
+                    <li><a href="/Home/Profile">PROFILE</a></li>
+                    <li><a href="/Home/Post">POST</a></li>
+                    <li><a href="/Home/Article">ARTICLE</a></li>
+                    <li><a href="/Home/Contact">CONTACT</a></li>
+                    <li><a href="/Admin" target="_blank">ADMIN</a></li>
+                </ul>
+            </nav>
+
+            <ul class="icon">
+                <li><a href="https://www.nicovideo.jp/user/82360996"><img src="../../Images/icon_niconico.png" alt="Niconico"></a></li>
+            </ul>
+        </header>
+        @RenderBody()
+    </div>
+</body>
+
+<!--页面底部-->
+<br />
+<br />
+
+<center>
+    <small>
+        Copyright&copy; <a href="/Home/Index">RIKA</a> All Rights Reserved.<br />
+        <a href="https://template-party.com/" target="_blank">Web Design:Template-Party</a><br />
+        <a href="http://www.beian.miit.gov.cn/">粤ICP备19160587号</a>
+    </small>
+</center>
+</html>

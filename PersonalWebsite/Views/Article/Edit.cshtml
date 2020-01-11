@@ -1,0 +1,59 @@
+﻿@model PersonalWebsite.Models.Article
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Article</legend>
+
+        @Html.HiddenFor(model => model.ArticleID)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ArticleType)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ArticleType)
+            @Html.ValidationMessageFor(model => model.ArticleType)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ArticleDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ArticleDate)
+            @Html.ValidationMessageFor(model => model.ArticleDate)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ArticleContent)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ArticleContent)
+            @Html.ValidationMessageFor(model => model.ArticleContent)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Markdown)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Markdown)
+            @Html.ValidationMessageFor(model => model.Markdown)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+

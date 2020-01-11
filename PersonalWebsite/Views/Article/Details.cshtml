@@ -1,0 +1,43 @@
+﻿@model PersonalWebsite.Models.Article
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Article</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ArticleType)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ArticleType)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ArticleDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ArticleDate)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ArticleContent)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ArticleContent)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Markdown)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Markdown)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ArticleID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

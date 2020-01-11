@@ -1,0 +1,46 @@
+﻿@model IEnumerable<PersonalWebsite.Models.Contact>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+    <a href="/Admin/Management">Back to management</a>
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ContactName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EMail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Details)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ContactName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EMail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Details)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ContactID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ContactID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ContactID })
+        </td>
+    </tr>
+}
+
+</table>

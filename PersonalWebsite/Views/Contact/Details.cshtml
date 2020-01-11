@@ -1,0 +1,36 @@
+﻿@model PersonalWebsite.Models.Contact
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Contact</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ContactName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ContactName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.EMail)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EMail)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Details)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Details)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ContactID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,104 @@
+﻿@model PersonalWebsite.Models.ViewArticle
+@using PagedList.Mvc
+
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+<style>
+    select {
+        background-color: black;
+        color: white;
+    }
+</style>
+
+<body>
+
+    <div id="container">
+
+        <div id="contents">
+
+            <div id="main">
+
+                <section>
+
+                    <h2>ARTICLE<span><input type="button" class="btn" onclick="create()" value="New Article"/></span></h2>
+
+                    <dl class="news">
+
+                        @foreach (var item in Model.ArticleList)
+                        {
+                            string ArticleDate = Html.DisplayFor(modelItem => item.ArticleDate).ToString().Split(' ')[0];
+                            string ArticleType = Html.DisplayFor(modelItem => item.ArticleType).ToString();
+                            string SpanClass = "icon";
+                            string ArticleContent = Html.DisplayTextFor(modelItem => item.ArticleContent).ToString();
+                            string ArticleTitle = ArticleContent.Split('猋')[0];
+                            <dt>@ArticleDate<span class="@SpanClass">@ArticleType</span></dt>
+                            <dd>
+                                @Html.ActionLink(ArticleTitle, "Content", new { id=item.ArticleID, title=ArticleTitle })
+                            </dd>
+                        }
+
+                    </dl>
+
+                    <div>
+                        Page @(Model.ArticleList.PageCount < Model.ArticleList.PageNumber ? 0 : Model.ArticleList.PageNumber) of @Model.ArticleList.PageCount
+                        @Html.PagedListPager(Model.ArticleList, page => Url.Action("Article", new { year=Model.year, month=Model.month, type=Model.type, page }))
+                    </div>
+
+                </section>
+
+            </div>
+            <!--/#main-->
+
+            <div id="sub">
+
+                @using (Html.BeginForm("Article", "Home", FormMethod.Get))
+                {
+                <h2>ARCHIVE</h2>
+                <ul class="submenu">
+                    <li><br /></li>
+                    <li><center><input type="submit" name="commandName" value="View All" /></center></li>
+                    <li><center>@Html.TextBox("year")</center></li>
+                    <li><center><input type="submit" name="commandName" value="Search by year" /></center></li>
+                    <li><br /></li>
+                    <li><center>@Html.TextBox("yearMonth")</center></li>
+                    <li><center><input type="submit" name="commandName" value="Search by year-month" /></center></li>
+                    <li><br /></li>
+                    <li><center>@Html.TextBox("type")</center></li>
+                    <li><center><input type="submit" name="commandName" value="Search by type" /></center></li>
+                </ul>
+                }
+
+            </div>
+            <!--/#sub-->
+
+        </div>
+        <!--/#contents-->
+
+        <footer>
+        </footer>
+
+    </div>
+    <!--/#container-->
+    <!--ページの上部に戻る「↑」ボタン-->
+    <p class="nav-fix-pos-pagetop"><a href="#">↑</a></p>
+
+    <!--メニュー開閉ボタン-->
+    <div id="menubar_hdr" class="close"></div>
+
+    <!--メニューの開閉処理条件設定　900px以下-->
+    <script>
+        if (OCwindowWidth() <= 900) {
+            open_close("menubar_hdr", "menubar-s");
+        }
+    </script>
+
+    <!--パララックス用ファイル読み込み-->
+    <script src="js/jquery.inview.js"></script>
+    <script src="js/jquery.inview_set.js"></script>
+
+</body>
+
+<script>
+    function create() {
+        location.href = "/Home/Create";
+    }
+</script>

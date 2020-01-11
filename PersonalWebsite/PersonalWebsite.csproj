@@ -1,0 +1,950 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{94289BFE-CF44-4BA2-A6C2-E5BBBFC0FDE5}</ProjectGuid>
+    <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PersonalWebsite</RootNamespace>
+    <AssemblyName>PersonalWebsite</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.4.5.6\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.20710.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.4.0.20710.0\lib\net40\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.20710.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.0.0\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.20710.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebMatrix.Data, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.Data.2.0.20710.0\lib\net40\WebMatrix.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.WebPages.OAuth, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.OAuth.2.0.20710.0\lib\net40\Microsoft.Web.WebPages.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.WebData.2.0.20710.0\lib\net40\WebMatrix.WebData.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.AspNet, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\DotNetOpenAuth.AspNet.4.0.3.12153\lib\net40-full\DotNetOpenAuth.AspNet.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\DotNetOpenAuth.Core.4.0.3.12153\lib\net40-full\DotNetOpenAuth.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth.Consumer, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\DotNetOpenAuth.OAuth.Consumer.4.0.3.12153\lib\net40-full\DotNetOpenAuth.OAuth.Consumer.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\DotNetOpenAuth.OAuth.Core.4.0.3.12153\lib\net40-full\DotNetOpenAuth.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OpenId, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\DotNetOpenAuth.OpenId.Core.4.0.3.12153\lib\net40-full\DotNetOpenAuth.OpenId.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OpenId.RelyingParty, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\DotNetOpenAuth.OpenId.RelyingParty.4.0.3.12153\lib\net40-full\DotNetOpenAuth.OpenId.RelyingParty.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.1.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.1.0\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\AuthConfig.cs" />
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\ArticleController.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\NewsController.cs" />
+    <Compile Include="Controllers\PostController.cs" />
+    <Compile Include="Controllers\ProfileController.cs" />
+    <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\Article.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Article.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Article.cs">
+      <DependentUpon>Article.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Article.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Article.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Article1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Article.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Contact.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Contact.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Contact.cs">
+      <DependentUpon>Contact.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Contact.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Contact.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Contact1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Contact.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\News.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Post.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Post.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Post.cs">
+      <DependentUpon>Post.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Post.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Post.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Post1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Post.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Profile.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Profile.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Profile.cs">
+      <DependentUpon>Profile.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Profile.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Profile.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Profile1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Profile.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SqlDBHelper.cs" />
+    <Compile Include="Models\ViewArticle.cs" />
+    <Compile Include="Models\ViewNews.cs" />
+    <Compile Include="Models\ViewPost.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\adminStyle.css" />
+    <Content Include="Content\inview.css" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="Content\slide.css" />
+    <Content Include="Content\style.css" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\jquery-ui.css" />
+    <Content Include="Content\themes\base\jquery.ui.accordion.css" />
+    <Content Include="Content\themes\base\jquery.ui.all.css" />
+    <Content Include="Content\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="Content\themes\base\jquery.ui.base.css" />
+    <Content Include="Content\themes\base\jquery.ui.button.css" />
+    <Content Include="Content\themes\base\jquery.ui.core.css" />
+    <Content Include="Content\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="Content\themes\base\jquery.ui.dialog.css" />
+    <Content Include="Content\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="Content\themes\base\jquery.ui.resizable.css" />
+    <Content Include="Content\themes\base\jquery.ui.selectable.css" />
+    <Content Include="Content\themes\base\jquery.ui.slider.css" />
+    <Content Include="Content\themes\base\jquery.ui.tabs.css" />
+    <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\minified\jquery-ui.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.accordion.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.autocomplete.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.button.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.core.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.datepicker.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.dialog.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.progressbar.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.resizable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.selectable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <EntityDeploy Include="Models\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Images\banner.jpg" />
+    <Content Include="Lib\Markdown\css\editormd.css" />
+    <Content Include="Lib\Markdown\css\editormd.logo.css" />
+    <Content Include="Lib\Markdown\css\editormd.logo.min.css" />
+    <Content Include="Lib\Markdown\css\editormd.min.css" />
+    <Content Include="Lib\Markdown\css\editormd.preview.css" />
+    <Content Include="Lib\Markdown\css\editormd.preview.min.css" />
+    <Content Include="Lib\Markdown\css\Note.css" />
+    <Content Include="Lib\Markdown\fonts\editormd-logo.svg" />
+    <Content Include="Lib\Markdown\fonts\fontawesome-webfont.svg" />
+    <Content Include="Lib\Markdown\images\loading%402x.gif" />
+    <Content Include="Lib\Markdown\images\loading%403x.gif" />
+    <Content Include="Lib\Markdown\images\loading.gif" />
+    <Content Include="Lib\Markdown\images\logos\editormd-favicon-16x16.ico" />
+    <Content Include="Lib\Markdown\images\logos\editormd-favicon-24x24.ico" />
+    <Content Include="Lib\Markdown\images\logos\editormd-favicon-32x32.ico" />
+    <Content Include="Lib\Markdown\images\logos\editormd-favicon-48x48.ico" />
+    <Content Include="Lib\Markdown\images\logos\editormd-favicon-64x64.ico" />
+    <Content Include="Lib\Markdown\images\logos\editormd-logo-114x114.png" />
+    <Content Include="Lib\Markdown\images\logos\editormd-logo-120x120.png" />
+    <Content Include="Lib\Markdown\images\logos\editormd-logo-144x144.png" />
+    <Content Include="Lib\Markdown\images\logos\editormd-logo-16x16.png" />
+    <Content Include="Lib\Markdown\images\logos\editormd-logo-180x180.png" />
+    <Content Include="Lib\Markdown\images\logos\editormd-logo-240x240.png" />
+    <Content Include="Lib\Markdown\images\logos\editormd-logo-24x24.png" />
+    <Content Include="Lib\Markdown\images\logos\editormd-logo-320x320.png" />
+    <Content Include="Lib\Markdown\images\logos\editormd-logo-32x32.png" />
+    <Content Include="Lib\Markdown\images\logos\editormd-logo-48x48.png" />
+    <Content Include="Lib\Markdown\images\logos\editormd-logo-57x57.png" />
+    <Content Include="Lib\Markdown\images\logos\editormd-logo-64x64.png" />
+    <Content Include="Lib\Markdown\images\logos\editormd-logo-72x72.png" />
+    <Content Include="Lib\Markdown\images\logos\editormd-logo-96x96.png" />
+    <Content Include="Lib\Markdown\images\logos\vi.png" />
+    <Content Include="Lib\Markdown\js\editormd.js" />
+    <Content Include="Lib\Markdown\languages\en.js" />
+    <Content Include="Lib\Markdown\languages\zh-tw.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\addons.min.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\addon\comment\comment.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\addon\comment\continuecomment.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\addon\dialog\dialog.css" />
+    <Content Include="Lib\Markdown\lib\codemirror\addon\dialog\dialog.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\addon\display\fullscreen.css" />
+    <Content Include="Lib\Markdown\lib\codemirror\addon\display\fullscreen.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\addon\display\panel.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\addon\display\placeholder.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\addon\display\rulers.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\addon\edit\closebrackets.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\addon\edit\closetag.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\addon\edit\continuelist.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\addon\edit\matchbrackets.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\addon\edit\matchtags.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\addon\edit\trailingspace.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\addon\fold\brace-fold.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\addon\fold\comment-fold.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\addon\fold\foldcode.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\addon\fold\foldgutter.css" />
+    <Content Include="Lib\Markdown\lib\codemirror\addon\fold\foldgutter.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\addon\fold\indent-fold.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\addon\fold\markdown-fold.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\addon\fold\xml-fold.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\addon\hint\anyword-hint.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\addon\hint\css-hint.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\addon\hint\html-hint.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\addon\hint\javascript-hint.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\addon\hint\show-hint.css" />
+    <Content Include="Lib\Markdown\lib\codemirror\addon\hint\show-hint.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\addon\hint\sql-hint.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\addon\hint\xml-hint.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\addon\lint\coffeescript-lint.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\addon\lint\css-lint.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\addon\lint\javascript-lint.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\addon\lint\json-lint.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\addon\lint\lint.css" />
+    <Content Include="Lib\Markdown\lib\codemirror\addon\lint\lint.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\addon\lint\yaml-lint.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\addon\merge\merge.css" />
+    <Content Include="Lib\Markdown\lib\codemirror\addon\merge\merge.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\addon\mode\loadmode.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\addon\mode\multiplex.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\addon\mode\multiplex_test.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\addon\mode\overlay.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\addon\mode\simple.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\addon\runmode\colorize.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\addon\runmode\runmode-standalone.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\addon\runmode\runmode.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\addon\runmode\runmode.node.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\addon\scroll\annotatescrollbar.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\addon\scroll\scrollpastend.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\addon\scroll\simplescrollbars.css" />
+    <Content Include="Lib\Markdown\lib\codemirror\addon\scroll\simplescrollbars.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\addon\search\match-highlighter.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\addon\search\matchesonscrollbar.css" />
+    <Content Include="Lib\Markdown\lib\codemirror\addon\search\matchesonscrollbar.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\addon\search\search.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\addon\search\searchcursor.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\addon\selection\active-line.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\addon\selection\mark-selection.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\addon\selection\selection-pointer.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\addon\tern\tern.css" />
+    <Content Include="Lib\Markdown\lib\codemirror\addon\tern\tern.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\addon\tern\worker.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\addon\wrap\hardwrap.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\codemirror.min.css" />
+    <Content Include="Lib\Markdown\lib\codemirror\codemirror.min.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\lib\codemirror.css" />
+    <Content Include="Lib\Markdown\lib\codemirror\lib\codemirror.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\modes.min.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\apl\apl.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\apl\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\asterisk\asterisk.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\asterisk\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\clike\clike.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\clike\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\clike\scala.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\clojure\clojure.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\clojure\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\cobol\cobol.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\cobol\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\coffeescript\coffeescript.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\coffeescript\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\commonlisp\commonlisp.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\commonlisp\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\css\css.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\css\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\css\less.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\css\less_test.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\css\scss.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\css\scss_test.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\css\test.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\cypher\cypher.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\cypher\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\dart\dart.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\dart\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\diff\diff.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\diff\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\django\django.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\django\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\dockerfile\dockerfile.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\dockerfile\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\dtd\dtd.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\dtd\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\dylan\dylan.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\dylan\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\d\d.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\d\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\ebnf\ebnf.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\ebnf\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\ecl\ecl.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\ecl\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\eiffel\eiffel.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\eiffel\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\erlang\erlang.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\erlang\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\forth\forth.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\forth\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\fortran\fortran.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\fortran\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\gas\gas.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\gas\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\gfm\gfm.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\gfm\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\gfm\test.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\gherkin\gherkin.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\gherkin\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\go\go.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\go\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\groovy\groovy.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\groovy\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\haml\haml.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\haml\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\haml\test.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\haskell\haskell.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\haskell\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\haxe\haxe.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\haxe\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\htmlembedded\htmlembedded.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\htmlembedded\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\htmlmixed\htmlmixed.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\htmlmixed\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\http\http.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\http\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\idl\idl.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\idl\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\jade\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\jade\jade.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\javascript\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\javascript\javascript.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\javascript\json-ld.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\javascript\test.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\javascript\typescript.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\jinja2\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\jinja2\jinja2.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\julia\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\julia\julia.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\kotlin\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\kotlin\kotlin.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\livescript\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\livescript\livescript.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\lua\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\lua\lua.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\markdown\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\markdown\markdown.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\markdown\test.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\meta.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\mirc\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\mirc\mirc.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\mllike\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\mllike\mllike.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\modelica\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\modelica\modelica.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\nginx\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\nginx\nginx.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\ntriples\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\ntriples\ntriples.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\octave\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\octave\octave.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\pascal\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\pascal\pascal.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\pegjs\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\pegjs\pegjs.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\perl\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\perl\perl.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\php\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\php\php.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\php\test.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\pig\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\pig\pig.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\properties\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\properties\properties.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\puppet\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\puppet\puppet.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\python\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\python\python.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\q\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\q\q.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\rpm\changes\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\rpm\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\rpm\rpm.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\rst\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\rst\rst.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\ruby\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\ruby\ruby.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\ruby\test.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\rust\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\rust\rust.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\r\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\r\r.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\sass\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\sass\sass.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\scheme\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\scheme\scheme.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\shell\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\shell\shell.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\shell\test.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\sieve\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\sieve\sieve.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\slim\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\slim\slim.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\slim\test.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\smalltalk\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\smalltalk\smalltalk.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\smartymixed\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\smartymixed\smartymixed.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\smarty\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\smarty\smarty.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\solr\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\solr\solr.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\soy\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\soy\soy.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\sparql\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\sparql\sparql.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\spreadsheet\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\spreadsheet\spreadsheet.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\sql\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\sql\sql.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\stex\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\stex\stex.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\stex\test.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\stylus\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\stylus\stylus.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\tcl\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\tcl\tcl.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\textile\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\textile\test.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\textile\textile.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\tiddlywiki\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\tiddlywiki\tiddlywiki.css" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\tiddlywiki\tiddlywiki.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\tiki\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\tiki\tiki.css" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\tiki\tiki.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\toml\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\toml\toml.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\tornado\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\tornado\tornado.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\turtle\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\turtle\turtle.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\vbscript\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\vbscript\vbscript.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\vb\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\vb\vb.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\velocity\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\velocity\velocity.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\verilog\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\verilog\test.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\verilog\verilog.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\xml\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\xml\test.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\xml\xml.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\xquery\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\xquery\test.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\xquery\xquery.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\yaml\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\yaml\yaml.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\z80\index.html" />
+    <Content Include="Lib\Markdown\lib\codemirror\mode\z80\z80.js" />
+    <Content Include="Lib\Markdown\lib\codemirror\theme\3024-day.css" />
+    <Content Include="Lib\Markdown\lib\codemirror\theme\3024-night.css" />
+    <Content Include="Lib\Markdown\lib\codemirror\theme\ambiance-mobile.css" />
+    <Content Include="Lib\Markdown\lib\codemirror\theme\ambiance.css" />
+    <Content Include="Lib\Markdown\lib\codemirror\theme\base16-dark.css" />
+    <Content Include="Lib\Markdown\lib\codemirror\theme\base16-light.css" />
+    <Content Include="Lib\Markdown\lib\codemirror\theme\blackboard.css" />
+    <Content Include="Lib\Markdown\lib\codemirror\theme\cobalt.css" />
+    <Content Include="Lib\Markdown\lib\codemirror\theme\colorforth.css" />
+    <Content Include="Lib\Markdown\lib\codemirror\theme\eclipse.css" />
+    <Content Include="Lib\Markdown\lib\codemirror\theme\elegant.css" />
+    <Content Include="Lib\Markdown\lib\codemirror\theme\erlang-dark.css" />
+    <Content Include="Lib\Markdown\lib\codemirror\theme\lesser-dark.css" />
+    <Content Include="Lib\Markdown\lib\codemirror\theme\mbo.css" />
+    <Content Include="Lib\Markdown\lib\codemirror\theme\mdn-like.css" />
+    <Content Include="Lib\Markdown\lib\codemirror\theme\midnight.css" />
+    <Content Include="Lib\Markdown\lib\codemirror\theme\monokai.css" />
+    <Content Include="Lib\Markdown\lib\codemirror\theme\neat.css" />
+    <Content Include="Lib\Markdown\lib\codemirror\theme\neo.css" />
+    <Content Include="Lib\Markdown\lib\codemirror\theme\night.css" />
+    <Content Include="Lib\Markdown\lib\codemirror\theme\paraiso-dark.css" />
+    <Content Include="Lib\Markdown\lib\codemirror\theme\paraiso-light.css" />
+    <Content Include="Lib\Markdown\lib\codemirror\theme\pastel-on-dark.css" />
+    <Content Include="Lib\Markdown\lib\codemirror\theme\rubyblue.css" />
+    <Content Include="Lib\Markdown\lib\codemirror\theme\solarized.css" />
+    <Content Include="Lib\Markdown\lib\codemirror\theme\the-matrix.css" />
+    <Content Include="Lib\Markdown\lib\codemirror\theme\tomorrow-night-bright.css" />
+    <Content Include="Lib\Markdown\lib\codemirror\theme\tomorrow-night-eighties.css" />
+    <Content Include="Lib\Markdown\lib\codemirror\theme\twilight.css" />
+    <Content Include="Lib\Markdown\lib\codemirror\theme\vibrant-ink.css" />
+    <Content Include="Lib\Markdown\lib\codemirror\theme\xq-dark.css" />
+    <Content Include="Lib\Markdown\lib\codemirror\theme\xq-light.css" />
+    <Content Include="Lib\Markdown\lib\codemirror\theme\zenburn.css" />
+    <Content Include="Lib\Markdown\lib\flowchart.min.js" />
+    <Content Include="Lib\Markdown\lib\jquery.flowchart.min.js" />
+    <Content Include="Lib\Markdown\lib\marked.min.js" />
+    <Content Include="Lib\Markdown\lib\prettify.min.js" />
+    <Content Include="Lib\Markdown\lib\raphael.min.js" />
+    <Content Include="Lib\Markdown\lib\sequence-diagram.min.js" />
+    <Content Include="Lib\Markdown\lib\underscore.min.js" />
+    <Content Include="Lib\Markdown\plugins\code-block-dialog\code-block-dialog.js" />
+    <Content Include="Lib\Markdown\plugins\emoji-dialog\emoji-dialog.js" />
+    <Content Include="Lib\Markdown\plugins\goto-line-dialog\goto-line-dialog.js" />
+    <Content Include="Lib\Markdown\plugins\help-dialog\help-dialog.js" />
+    <Content Include="Lib\Markdown\plugins\html-entities-dialog\html-entities-dialog.js" />
+    <Content Include="Lib\Markdown\plugins\image-dialog\image-dialog.js" />
+    <Content Include="Lib\Markdown\plugins\link-dialog\link-dialog.js" />
+    <Content Include="Lib\Markdown\plugins\plugin-template.js" />
+    <Content Include="Lib\Markdown\plugins\preformatted-text-dialog\preformatted-text-dialog.js" />
+    <Content Include="Lib\Markdown\plugins\reference-link-dialog\reference-link-dialog.js" />
+    <Content Include="Lib\Markdown\plugins\table-dialog\table-dialog.js" />
+    <Content Include="Lib\Markdown\plugins\test-plugin\test-plugin.js" />
+    <Content Include="Models\Article.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Article.edmx</DependentUpon>
+      <LastGenOutput>Article.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Article.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Article.edmx</DependentUpon>
+      <LastGenOutput>Article1.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Contact.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Contact.edmx</DependentUpon>
+      <LastGenOutput>Contact.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Contact.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Contact.edmx</DependentUpon>
+      <LastGenOutput>Contact1.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\Profile.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Profile.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Post.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Post.edmx</DependentUpon>
+      <LastGenOutput>Post.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Post.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Post.edmx</DependentUpon>
+      <LastGenOutput>Post1.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Profile.edmx.diagram">
+      <DependentUpon>Profile.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\Post.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Post.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Post.edmx.diagram">
+      <DependentUpon>Post.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\Contact.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Contact.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Contact.edmx.diagram">
+      <DependentUpon>Contact.edmx</DependentUpon>
+    </Content>
+    <Content Include="Lib\Markdown\examples\test.md" />
+    <Content Include="Lib\Markdown\fonts\editormd-logo.eot" />
+    <Content Include="Lib\Markdown\fonts\editormd-logo.ttf" />
+    <Content Include="Lib\Markdown\fonts\editormd-logo.woff" />
+    <Content Include="Lib\Markdown\fonts\fontawesome-webfont.eot" />
+    <Content Include="Lib\Markdown\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Lib\Markdown\fonts\fontawesome-webfont.woff" />
+    <Content Include="Lib\Markdown\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Lib\Markdown\fonts\FontAwesome.otf" />
+    <Content Include="Lib\Markdown\lib\codemirror\AUTHORS" />
+    <Content Include="Lib\Markdown\lib\codemirror\bower.json" />
+    <Content Include="Lib\Markdown\lib\codemirror\LICENSE" />
+    <Content Include="Lib\Markdown\lib\codemirror\package.json" />
+    <Content Include="Lib\Markdown\lib\codemirror\README.md" />
+    <Content Include="Lib\Markdown\plugins\emoji-dialog\emoji.json" />
+    <Content Include="Lib\Markdown\plugins\help-dialog\help.md" />
+    <Content Include="Lib\Markdown\plugins\html-entities-dialog\html-entities.json" />
+    <EntityDeploy Include="Models\Article.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Article.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Article.edmx.diagram">
+      <DependentUpon>Article.edmx</DependentUpon>
+    </Content>
+    <None Include="Scripts\jquery-1.7.1.intellisense.js" />
+    <Content Include="Images\1.jpg" />
+    <Content Include="Images\1_index2.jpg" />
+    <Content Include="Images\2.jpg" />
+    <Content Include="Images\3.jpg" />
+    <Content Include="Images\icon_facebook.png" />
+    <Content Include="Images\icon_instagram.png" />
+    <Content Include="Images\icon_menu.png" />
+    <Content Include="Images\icon_niconico.png" />
+    <Content Include="Images\icon_twitter.png" />
+    <Content Include="Images\icon_youtube.png" />
+    <Content Include="Images\index2.jpg" />
+    <Content Include="Images\logo.png" />
+    <Content Include="Images\photo1.png" />
+    <Content Include="Images\photo2.png" />
+    <Content Include="Images\sample1_mini.jpg" />
+    <Content Include="Models\Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Profile.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Profile.edmx</DependentUpon>
+      <LastGenOutput>Profile.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Profile.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Profile.edmx</DependentUpon>
+      <LastGenOutput>Profile1.cs</LastGenOutput>
+    </Content>
+    <Content Include="Scripts\fixmenu_pagetop.js" />
+    <Content Include="Scripts\jquery-1.7.1.js" />
+    <Content Include="Scripts\jquery-1.7.1.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-ui-1.8.20.js" />
+    <Content Include="Scripts\jquery-ui-1.8.20.min.js" />
+    <Content Include="Scripts\jquery.inview_set.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\knockout-2.1.0.debug.js" />
+    <Content Include="Scripts\knockout-2.1.0.js" />
+    <Content Include="Scripts\modernizr-2.5.3.js" />
+    <Content Include="Scripts\openclose.js" />
+    <Content Include="Views\Home\create.cshtml" />
+    <Content Include="Views\Home\content.cshtml" />
+    <Content Include="Views\Article\Index.cshtml" />
+    <Content Include="Views\Article\Details.cshtml" />
+    <Content Include="Views\Article\Create.cshtml" />
+    <Content Include="Views\Article\Edit.cshtml" />
+    <Content Include="Views\Article\Delete.cshtml" />
+    <None Include="Views\Home\edit.cshtml" />
+    <Content Include="Views\Contact\Index.cshtml" />
+    <Content Include="Views\Contact\Details.cshtml" />
+    <Content Include="Views\Contact\Create.cshtml" />
+    <Content Include="Views\Contact\Edit.cshtml" />
+    <Content Include="Views\Contact\Delete.cshtml" />
+    <None Include="Views\Home\contact.cshtml" />
+    <Content Include="Views\Home\article.cshtml" />
+    <None Include="Views\Home\post.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\Management.cshtml" />
+    <Content Include="Views\Admin\FileUpload.cshtml" />
+    <None Include="Views\Home\Index.cshtml" />
+    <None Include="Views\Home\news.cshtml" />
+    <None Include="Views\Home\profile.cshtml" />
+    <None Include="Views\Home\readme.cshtml" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Views\Home\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\News\Index.cshtml" />
+    <Content Include="Views\News\Details.cshtml" />
+    <Content Include="Views\News\Create.cshtml" />
+    <Content Include="Views\News\Edit.cshtml" />
+    <Content Include="Views\News\Delete.cshtml" />
+    <Content Include="Views\Home\Error.cshtml" />
+    <Content Include="Views\Profile\Index.cshtml" />
+    <Content Include="Views\Profile\Details.cshtml" />
+    <Content Include="Views\Profile\Create.cshtml" />
+    <Content Include="Views\Profile\Edit.cshtml" />
+    <Content Include="Views\Profile\Delete.cshtml" />
+    <Content Include="Views\Post\Index.cshtml" />
+    <Content Include="Views\Post\Details.cshtml" />
+    <Content Include="Views\Post\Create.cshtml" />
+    <Content Include="Views\Post\Edit.cshtml" />
+    <Content Include="Views\Post\Delete.cshtml" />
+    <Content Include="Views\News\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_ManagementLayout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Content\ManagementCSS\" />
+    <Folder Include="Files\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:3454/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>
