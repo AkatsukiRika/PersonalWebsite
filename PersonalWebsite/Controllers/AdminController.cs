@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
+using Newtonsoft.Json;
 
 namespace PersonalWebsite.Controllers
 {
@@ -51,15 +55,74 @@ namespace PersonalWebsite.Controllers
             }
         }
 
+        public ActionResult FileUpload()
+        {
+            return View();
+        }
+
+        [HttpPost]
         public ActionResult FileUpload(HttpPostedFileBase file)
         {
-            if(file != null)
+            if (file != null)
             {
                 string filePath = Server.MapPath("~/Files/") + file.FileName;
                 file.SaveAs(filePath);
-                return Content("<script>alert('アップロードに成功しました');location.href='/Admin/FileUpload';</script>");
+
+                var json = new List<Object>();
+                var data = new List<object>();
+                data.Add(new
+                {
+                    src = file.FileName
+                });
+                json.Add(new
+                {
+                    code = 0,
+                    msg = "Upload succeeded",
+                    data
+                });
+                return Json(data);
             }
-            return View();
+            else
+            {
+                return Json(new
+                {
+                    code = 1,
+                    msg = "Upload failed"
+                });
+            }
+        }
+
+        //文件表格
+        [HttpPost]
+        public ActionResult FileTable(int page, int limit)
+        {
+            DirectoryInfo folder = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory + "Files\\");
+            var json = new List<Object>();
+            var data = new List<Object>();
+            int count = 0;
+            foreach(FileInfo file in folder.GetFiles())
+            {
+                count++;
+                string fileName = file.Name;
+                string fileType = Path.GetExtension(file.FullName);
+                string fileSize = file.Length.ToString();
+                string createTime = file.CreationTime.ToString();
+                data.Add(new
+                {
+                    filename = fileName,
+                    type = fileType,
+                    size = fileSize,
+                    create_time = createTime
+                });
+            }
+            json.Add(new
+            {
+                code = 0,
+                msg = "Load succeeded",
+                count,
+                data
+            });
+            return Json(data);
         }
 
         public ActionResult Logout()

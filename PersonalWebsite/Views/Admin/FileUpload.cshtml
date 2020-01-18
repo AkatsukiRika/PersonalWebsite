@@ -1,12 +1,66 @@
 ﻿@{
-    ViewBag.Title = "FileUpload";
+    ViewBag.Title = "ファイルアップロード";
 }
 
-<h2>FileUpload</h2>
-<div>
-    @using (Html.BeginForm("FileUpload", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
-    {
-        <input type="file" name="file" />
-        <input type="submit" name="upload" value="確認する" />
-    }
-</div>
+<center>
+    <button type="button" class="layui-btn" id="test"><i class="layui-icon">&#xe67c;</i>ファイルをアップロードする</button>
+</center>
+<table class="layui-hide" id="table" lay-filter="test"></table>
+
+<script>
+    //文件上传
+    layui.use('upload', function () {
+        var upload = layui.upload;
+
+        //执行实例
+        var uploadInst = upload.render({
+            elem: '#test', //绑定元素
+            url: '/Admin/FileUpload', //上传接口
+            method: 'post',
+            accept: 'file',
+            done: function (res) {
+                //上传完毕回调
+                layui.use('layer', function () {
+                    var layer = layui.layer;
+                    layer.msg('アップロードに成功しました！')
+                });
+                setTimeout(function () {
+                    location.reload(); //刷新页面
+                }, 2000);
+            },
+            error: function (res) {
+                console.log(res);
+            }
+        });
+    });
+
+    //渲染表格
+    layui.use('table', function () {
+        var table = layui.table;
+
+        table.render({
+            elem: '#table',
+            url: '/Admin/FileTable',
+            page: false,
+            method: 'post',
+            height: 720,
+            parseData: function (res) {
+                console.log(res);
+                return {
+                    "code": 0, //数据状态
+                    "msg": "", //状态信息
+                    "count": 1000, //数据总数
+                    data: res
+                }
+            },
+            cols: [
+                [ //表头
+                    { field: 'filename', title: 'タイトル', sort: true, fixed: 'left' },
+                    { field: 'type', title: 'ファイル種類', sort: true },
+                    { field: 'size', title: 'サイズ', sort: true },
+                    { field: 'create_time', title: '作成時間', sort: true }
+                ]
+            ]
+        });
+    })
+</script>
