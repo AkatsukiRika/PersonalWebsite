@@ -4,25 +4,21 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-    <a href="/Admin/Management">Back to management</a>
-</p>
-<table>
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.ContactName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EMail)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Details)
-        </th>
-        <th></th>
-    </tr>
+<table class="layui-table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ContactName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EMail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Details)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
 
 @foreach (var item in Model) {
     <tr>
@@ -44,3 +40,18 @@
 }
 
 </table>
+
+<script>
+    function getTdValue() {
+        var tableID = document.getElementsByClassName("layui-table")[0];
+        for (var i = 1; i < tableID.rows.length; i++) {
+            // 若Details长度大于32个字符，则截取前32个字符显示
+            var str = tableID.rows[i].cells[2].innerHTML.trim();
+            if (str.length > 32) {
+                tableID.rows[i].cells[2].innerHTML = str.substring(0, 32) + "......";
+            }
+        }
+    }
+
+    getTdValue();
+</script>

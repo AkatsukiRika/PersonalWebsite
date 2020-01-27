@@ -977,6 +977,8 @@
     <Content Include="Views\Article\Edit.cshtml" />
     <Content Include="Views\Article\Delete.cshtml" />
     <Content Include="Views\Admin\_ViewStart.cshtml" />
+    <Content Include="Views\Article\_ViewStart.cshtml" />
+    <Content Include="Views\Contact\_ViewStart.cshtml" />
     <None Include="Views\Home\edit.cshtml" />
     <Content Include="Views\Contact\Index.cshtml" />
     <Content Include="Views\Contact\Details.cshtml" />
@@ -1026,6 +1028,10 @@
     <Content Include="Views\Post\Delete.cshtml" />
     <Content Include="Views\Shared\_ManagementLayout.cshtml" />
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Views\News\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_ManageLayout.cshtml" />
+    <Content Include="Views\Profile\_ViewStart.cshtml" />
+    <Content Include="Views\Post\_ViewStart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

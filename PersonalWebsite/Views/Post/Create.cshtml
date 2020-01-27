@@ -54,3 +54,18 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
+
+<script>
+    var textBoxes = document.getElementsByClassName("text-box");
+    for (var i = 0; i < textBoxes.length; i++) {
+        textBoxes[i].style.width = "100%";
+        textBoxes[i].style.height = "25px";
+        textBoxes[i].className += " layui-input";
+    }
+
+    var textAreas = document.getElementsByTagName("textarea");
+    for (var i = 0; i < textAreas.length; i++) {
+        textAreas[i].className += " layui-textarea";
+        textAreas[i].rows = 6;
+    }
+</script>

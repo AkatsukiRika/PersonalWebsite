@@ -32,7 +32,7 @@
                             string BigImg = Html.DisplayTextFor(modelItem => item.BigImg).ToString();
                             string ImgClass = "class=\"img\"";
                             string ImgText = Html.DisplayFor(modelItem => item.ImgText).ToString();
-                            if(BigImg.Equals("False"))
+                            if (BigImg.Equals("False"))
                             {
                                 ImgClass = "class=\"img\"";
                             }
@@ -54,11 +54,22 @@
                                 SpanClass = "icon media";
                             }
 
-                            <dt>@NewsDate<span class="@SpanClass">@NewsType</span></dt>
-                            <dd>
-                                <img src="../../Files/@ImgSrc" alt="" @Html.Raw(ImgClass) />
-                                @ImgText
-                            </dd>
+                            //若ImgSrc的值为NoImg，则不显示图片
+                            if (ImgSrc.Equals("NoImg"))
+                            {
+                                <dt>@NewsDate<span class="@SpanClass">@NewsType</span></dt>
+                                <dd>
+                                    @ImgText
+                                </dd>
+                            }
+                            else
+                            {
+                                <dt>@NewsDate<span class="@SpanClass">@NewsType</span></dt>
+                                <dd>
+                                    <img src="../../Files/@ImgSrc" alt="" @Html.Raw(ImgClass) />
+                                    @ImgText
+                                </dd>
+                            }
                         }
 
                     </dl>

@@ -6,7 +6,8 @@
 
 <h2>Create</h2>
 
-@using (Html.BeginForm()) {
+@using (Html.BeginForm())
+{
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
@@ -33,7 +34,7 @@
             @Html.LabelFor(model => model.ArticleContent)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.ArticleContent)
+            @Html.TextAreaFor(model => model.ArticleContent)
             @Html.ValidationMessageFor(model => model.ArticleContent)
         </div>
 
@@ -41,7 +42,7 @@
             @Html.LabelFor(model => model.Markdown)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Markdown)
+            @Html.TextAreaFor(model => model.Markdown)
             @Html.ValidationMessageFor(model => model.Markdown)
         </div>
 
@@ -54,3 +55,19 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
+
+<script>
+    var textBoxes = document.getElementsByClassName("text-box");
+    for (var i = 0; i < textBoxes.length; i++) {
+        textBoxes[i].style.width = "100%";
+        textBoxes[i].style.height = "25px";
+        textBoxes[i].className += " layui-input";
+    }
+
+    var textAreas = document.getElementsByTagName("textarea");
+    for (var i = 0; i < textAreas.length; i++) {
+        textAreas[i].className += " layui-textarea";
+        textAreas[i].rows = 8;
+    }
+</script>
+

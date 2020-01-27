@@ -4,49 +4,63 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<table class="layui-table" style="table-layout: fixed;">
+    <thead>
+        <tr>
+            <th style="width: 128px;">
+                @Html.DisplayNameFor(model => model.ProfileDescription)
+            </th>
+            <th style="width: 96px;">
+                @Html.DisplayNameFor(model => model.BasicProfile)
+            </th>
+            <th style="width: 96px;">
+                @Html.DisplayNameFor(model => model.Information)
+            </th>
+            <th style="width: 144px;">
+                @Html.DisplayNameFor(model => model.Mutter)
+            </th>
+            <th style="width: 48px;"></th>
+        </tr>
+    </thead>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-    <a href="/Admin/Management">Back to management</a>
-</p>
-<table>
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.ProfileDescription)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.BasicProfile)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Information)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Mutter)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProfileDescription)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.BasicProfile)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Information)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Mutter)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ProfileID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ProfileID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ProfileID })
-        </td>
-    </tr>
-}
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProfileDescription)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BasicProfile)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Information)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Mutter)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ProfileID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.ProfileID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ProfileID })
+                </td>
+            </tr>
+        }
+    </tbody>
 
 </table>
+
+<script>
+    function getTdValue() {
+        var tableID = document.getElementsByClassName("layui-table")[0];
+        for (var i = 1; i < tableID.rows.length; i++) {
+            // 若mutter长度大于32个字符，则截取前32个字符显示
+            var str = tableID.rows[i].cells[3].innerHTML.trim();
+            if (str.length > 32) {
+                tableID.rows[i].cells[3].innerHTML = str.substring(0, 32) + "......";
+            }
+        }
+    }
+
+    getTdValue();
+</script>

@@ -39,13 +39,18 @@
                                 Tamidashi = "colspan=\"2\" class=\"tamidashi\"";
                             }
 
+
                             <tr>
                                 <th @Html.Raw(Tamidashi)> @TableHead</th>
                                 @if (TamidashiBit.Equals("False"))
                                 {
                                 <td>
                                     @Html.Raw(Html.Encode(TableData).Replace("\n", "<br />"))
+                                    <!--若ImgSrc不为NoImg，则显示图片-->
+                                    @if (!ImgSrc.Equals("NoImg"))
+                                    {
                                     <img src="../../Files/@ImgSrc" alt="" />
+                                    }
                                 </td>
                                 }
                             </tr>
