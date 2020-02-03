@@ -6,8 +6,16 @@
     <button type="button" class="layui-btn" id="test"><i class="layui-icon">&#xe67c;</i>ファイルをアップロードする</button>
 </center>
 <table class="layui-hide" id="table" lay-filter="test"></table>
+<center>
+    <button type="button" class="layui-btn layui-btn-normal" onclick="browse()" id="browse"><i class="layui-icon">&#xe60f;</i>ディレクトリブラウザを開く</button>
+</center>
 
 <script>
+    //打开文件浏览器
+    function browse() {
+        location.href = "/Files";
+    }
+
     //文件上传
     layui.use('upload', function () {
         var upload = layui.upload;

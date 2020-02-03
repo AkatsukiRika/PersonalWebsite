@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aquarium Adminstration</title>
+    <title>Aquarium Administration</title>
     <link rel="stylesheet" href="~/Content/layui/css/layui.css" media="all">
     <link rel="stylesheet" type="text/css" href="http://cdn.bootcss.com/font-awesome/4.6.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="~/Content/build/css/app.css" media="all">
@@ -30,22 +30,22 @@
                 <div title="菜单缩放" class="kit-side-fold"><i class="fa fa-navicon" aria-hidden="true"></i></div>
                 <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
                 <ul class="layui-nav layui-nav-tree" lay-filter="kitNavbar" kit-navbar>
-                    <li class="layui-nav-item">
+                    <li class="News layui-nav-item">
                         <a href="/News"><i class="layui-icon layui-icon-file" aria-hidden="true"></i><span> News</span></a>
                     </li>
-                    <li class="layui-nav-item">
+                    <li class="Profile layui-nav-item">
                         <a href="/Profile"><i class="layui-icon layui-icon-list" aria-hidden="true"></i><span> Profile</span></a>
                     </li>
-                    <li class="layui-nav-item">
+                    <li class="Post layui-nav-item">
                         <a href="/Post"><i class="layui-icon layui-icon-edit" aria-hidden="true"></i><span> Post</span></a>
                     </li>
-                    <li class="layui-nav-item">
+                    <li class="Contact layui-nav-item">
                         <a href="/Contact"><i class="layui-icon layui-icon-cellphone" aria-hidden="true"></i><span> Contact</span></a>
                     </li>
-                    <li class="layui-nav-item">
+                    <li class="Article layui-nav-item">
                         <a href="/Article"><i class="layui-icon layui-icon-read" aria-hidden="true"></i><span> Article</span></a>
                     </li>
-                    <li class="layui-nav-item">
+                    <li class="Files layui-nav-item">
                         <a href="/Admin/FileUpload"><i class="layui-icon layui-icon-upload" aria-hidden="true"></i><span> Files</span></a>
                     </li>
                 </ul>
@@ -81,6 +81,16 @@
     </div>
 
     <script>
+        //高亮显示选定项目
+        var host = window.location.host; //主机名
+        var url = window.location.href; //域名
+        var arr = ["News", "Profile", "Post", "Contact", "Article"];
+        var loc = url.split(host + "/")[1];
+        if (arr.indexOf(loc) >= 0 && arr.indexOf(loc) <= 4) {
+            document.getElementsByClassName(loc)[0].className += " layui-nav-itemed";
+        }
+        //Files页面的显示出现错误，暂未解决
+
         layui.use('element', function () {
             var element = layui.element;
         });

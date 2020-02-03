@@ -33,17 +33,17 @@
                         <table class="ta1">
                             <tr>
                                 <th>Name※</th>
-                                <td>@Html.TextBoxFor(model => model.ContactName, new { @style="width:510px" })</td>
+                                <td>@Html.TextBoxFor(model => model.ContactName, new { @style="width:90%" })</td>
                                 <!--<td><input type="text" name="Name" size="30" class="ws"></td>-->
                             </tr>
                             <tr>
                                 <th>E-Mail※</th>
-                                <td>@Html.TextBoxFor(model => model.EMail, new { @style="width:510px" })</td>
+                                <td>@Html.TextBoxFor(model => model.EMail, new { @style="width:90%" })</td>
                                 <!--<td><input type="text" name="Email" size="30" class="ws"></td>-->
                             </tr>
                             <tr>
                                 <th>Details※</th>
-                                <td>@Html.TextAreaFor(model => model.Details, 15, 150, new { })</td>
+                                <td>@Html.TextAreaFor(model => model.Details, 10, 100, new { @style="width:100%" })</td>
                                 <!--<td><textarea name="Details" cols="30" rows="10" class="wl"></textarea></td>-->
                             </tr>
                         </table>
