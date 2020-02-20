@@ -24,7 +24,7 @@ namespace PersonalWebsite.Controllers
                 return Content("<script>location.href='/Home/Error';</script>");
             }
 
-            return View(db.Post.Reverse().ToList());
+            return View(db.Post.OrderByDescending(q => q.PostID).ToList());
         }
 
         //
