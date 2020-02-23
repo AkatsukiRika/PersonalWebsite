@@ -47,6 +47,7 @@ namespace PersonalWebsite.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
         public ActionResult Create(Article article)
         {
             if (ModelState.IsValid)
@@ -77,6 +78,7 @@ namespace PersonalWebsite.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
         public ActionResult Edit(Article article)
         {
             if (ModelState.IsValid)

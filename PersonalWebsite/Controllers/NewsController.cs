@@ -65,6 +65,7 @@ namespace PersonalWebsite.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
         public ActionResult Create(News news)
         {
             try
@@ -108,6 +109,7 @@ namespace PersonalWebsite.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
         public ActionResult Edit(News news)
         {
             if (ModelState.IsValid)
