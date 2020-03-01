@@ -228,12 +228,14 @@ namespace PersonalWebsite.Controllers
                 {
                     string title = Request["title"];
                     string titleStr = title + "猋"; //用生僻字当作标签，防止标题显示出错
-                    string articleContent = HttpUtility.UrlDecode(Request["hiddenContent"]);
-                    string Markdown = HttpUtility.UrlDecode(Request["hiddenContent1"]);
+                    string hiddenContent = Request["hiddenContent"].Replace("+", "%2B");
+                    string hiddenContent1 = Request["hiddenContent1"].Replace("+", "%2B");
+                    string articleContent = HttpUtility.UrlDecode(hiddenContent);
+                    string Markdown = HttpUtility.UrlDecode(hiddenContent1);
                     article.ArticleDate = DateTime.Now;
                     article.ArticleContent = articleContent;
                     article.ArticleContent = article.ArticleContent.Insert(0, titleStr);
-                    article.Markdown = Markdown;
+                    article.Markdown = Markdown.Replace("+", "%2B");
                     db7.Article.Add(article);
                     db7.SaveChanges();
                 }
@@ -241,7 +243,7 @@ namespace PersonalWebsite.Controllers
             }
             catch (Exception e)
             {
-                return Content("<script>alert('Error occurred when updating the database.');location.href='/Home/Create';</script>");
+                return Content("<script>alert('Error occurred when updating the database. Error Type: ');" + e.Message + "location.href='/Home/Create';</script>");
             }
         }
 
@@ -276,8 +278,10 @@ namespace PersonalWebsite.Controllers
                     string ID = Request["hiddenID"];
                     string date = Request["hiddenDate"];
                     string titleStr = title + "猋"; //用生僻字当作标签，防止标题显示出错
-                    string articleContent = HttpUtility.UrlDecode(Request["hiddenContent"]);
-                    string Markdown = HttpUtility.UrlDecode(Request["hiddenContent1"]);
+                    string hiddenContent = Request["hiddenContent"].Replace("+", "%2B");
+                    string hiddenContent1 = Request["hiddenContent1"].Replace("+", "%2B");
+                    string articleContent = HttpUtility.UrlDecode(hiddenContent);
+                    string Markdown = HttpUtility.UrlDecode(hiddenContent1);
                     article.ArticleDate = Convert.ToDateTime(date);
                     article.ArticleID = Convert.ToInt32(ID);
                     article.ArticleContent = articleContent;
