@@ -179,6 +179,59 @@ namespace PersonalWebsite.Controllers
             return View(vpost);
         }
 
+        /// <summary>
+        /// 验证问题
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        public JsonResult PostQuestion()
+        {
+            List<string> list = new List<string>();
+            for(int i=1; i<=3; i++)
+            {
+                list.Add(Request.Form.Get("question-" + i.ToString()));
+                list.Add(Request.Form.Get("answer-" + i.ToString()));
+            }
+
+            //读取JSON文件
+            string jsonFile = Server.MapPath("~/Files/") + "questions.json";
+            Encoding encode = System.Text.Encoding.GetEncoding("utf-8");
+            StreamReader file = System.IO.File.OpenText(jsonFile);
+            JsonTextReader reader = new JsonTextReader(file);
+            JObject obj = (JObject)JToken.ReadFrom(reader);
+            file.Close(); //防止占用文件
+            var qlist = obj["questions"].ToString();
+            JArray ja = (JArray)JsonConvert.DeserializeObject(qlist);
+
+            int score = 0;
+
+            for (int i=0; i<5; i+=2)
+            {
+                string content = list[i];
+                string answer = list[i + 1];
+                bool flag = false;
+                //遍历查询，可优化
+                foreach(JToken jt in ja)
+                {
+                    if(content.Equals(jt["content"].ToString()) && answer.Equals(jt["answer"].ToString()))
+                    {
+                        flag = true;
+                        break;
+                    }
+                }
+                if (flag) score++;
+            }
+
+            if(score == 3)
+            {
+                return Json(new { code = 200, score = score, message = "Cleared!" });
+            }
+            else
+            {
+                return Json(new { code = 0, score = score, message = "Validation failed..." });
+            }
+        }
+
         public ActionResult Contact()
         {
             return View();

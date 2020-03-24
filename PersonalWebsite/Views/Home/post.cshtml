@@ -156,7 +156,7 @@
                         </div>
 
                         <div class="modal-content">
-                            <form action="" method="post">
+                            <form action="" method="post" id="qform">
                                 @{ 
                                     int count = 1;
                                 }
@@ -165,6 +165,7 @@
                                 {
                                     foreach (var vq in ViewBag.vqlist)
                                     {
+                                        <input type="hidden" name="question-@count" value="@vq.Content" />
                                         @vq.Content<br />
                                         <input type="text" name="answer-@count" />
                                         count++;
@@ -175,7 +176,7 @@
         
 
                         <div class="modal-footer">
-                            <button>Submit</button>
+                            <button type="button" onclick="answerQuestion()">Submit</button>
                         </div>
                     </div>
 
@@ -231,7 +232,28 @@
                 modal.style.display = "block";
             }
         }
+
+        function answerQuestion() {
+            $.ajax({
+                type: "post",
+                async: true,
+                processData: false,
+                url: "/Home/PostQuestion",
+                data: $('#qform').serialize(),
+                success: function (data) {
+                    if (data.code == 200) {
+                        var mask = document.getElementsByClassName("mask")[0];
+                        var modal = document.getElementsByClassName("modal")[0];
+                        mask.style.display = "none";
+                        modal.style.display = "none";
+                    }
+                    else {
+                        alert("Wrong answer!");
+                        location.reload();
+                    }
+                }
+            });
+        }
     </script>
 
 </body>
-</html>
