@@ -6,6 +6,11 @@ using System.Web;
 using System.Web.Mvc;
 using PersonalWebsite.Models;
 using PagedList;
+using System.Configuration;
+using System.IO;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System.Text;
 
 namespace PersonalWebsite.Controllers
 {
@@ -98,8 +103,67 @@ namespace PersonalWebsite.Controllers
             return View(db3.Profile.FirstOrDefault());
         }
 
+        /// <summary>
+        /// 生成不同随机数的方法
+        /// </summary>
+        /// <param name="min">最小值</param>
+        /// <param name="max">最大值</param>
+        /// <param name="count">个数</param>
+        /// <returns></returns>
+        private static int[] GetRandom(int min, int max, int count)
+        {
+            int[] maxArray = new int[max];
+            for(int i=0; i<max; i++)
+            {
+                maxArray[i] = min + i;
+            }
+            int[] rArray = new int[count];
+            Random rd = new Random();
+            int tmp = max;
+            for(int i=0; i<count; i++)
+            {
+                int tIndex = rd.Next(0, tmp);
+                rArray[i] = maxArray[tIndex];
+                maxArray[tIndex] = maxArray[--tmp];
+            }
+            return rArray;
+        }
+
         public ActionResult Post(int? page)
         {
+            //是否需要回答问题后才能查看内容
+            string PostQuestion = ConfigurationManager.AppSettings["PostQuestion"];
+            ViewBag.PostQuestion = PostQuestion;
+
+            //若是管理员登录，则默认不需要回答问题
+            if (Session["username"] != null)
+            {
+                ViewBag.PostQuestion = "false";
+            }
+            
+            //若需要回答问题
+            if (PostQuestion == "true")
+            {
+                string jsonFile = Server.MapPath("~/Files/") + "questions.json";
+                Encoding encode = System.Text.Encoding.GetEncoding("utf-8");
+                StreamReader file = System.IO.File.OpenText(jsonFile);
+                JsonTextReader reader = new JsonTextReader(file);
+                JObject obj = (JObject)JToken.ReadFrom(reader);
+                file.Close(); //防止占用文件
+                var list = obj["questions"].ToString();
+                JArray ja = (JArray)JsonConvert.DeserializeObject(list);
+                var selected = GetRandom(0, ja.Count, 3);
+                List<ViewQuestion> vqlist = new List<ViewQuestion>();
+                foreach (var num in selected)
+                {
+                    ViewQuestion vq = new ViewQuestion();
+                    vq.Content = ja[num]["content"].ToString();
+                    vq.Answer = ja[num]["answer"].ToString();
+                    vqlist.Add(vq);
+                }
+                ViewBag.vqlist = vqlist;
+            }
+
             System.Linq.IQueryable<PersonalWebsite.Models.Post> post;
             //进行查询
             post = from p in db4.Post
@@ -228,14 +292,12 @@ namespace PersonalWebsite.Controllers
                 {
                     string title = Request["title"];
                     string titleStr = title + "猋"; //用生僻字当作标签，防止标题显示出错
-                    string hiddenContent = Request["hiddenContent"].Replace("+", "%2B");
-                    string hiddenContent1 = Request["hiddenContent1"].Replace("+", "%2B");
-                    string articleContent = HttpUtility.UrlDecode(hiddenContent);
-                    string Markdown = HttpUtility.UrlDecode(hiddenContent1);
+                    string articleContent = HttpUtility.UrlDecode(Request["hiddenContent"]);
+                    string Markdown = HttpUtility.UrlDecode(Request["hiddenContent1"]);
                     article.ArticleDate = DateTime.Now;
                     article.ArticleContent = articleContent;
                     article.ArticleContent = article.ArticleContent.Insert(0, titleStr);
-                    article.Markdown = Markdown.Replace("+", "%2B");
+                    article.Markdown = Markdown;
                     db7.Article.Add(article);
                     db7.SaveChanges();
                 }
@@ -243,7 +305,7 @@ namespace PersonalWebsite.Controllers
             }
             catch (Exception e)
             {
-                return Content("<script>alert('Error occurred when updating the database. Error Type: ');" + e.Message + "location.href='/Home/Create';</script>");
+                return Content("<script>alert('Error occurred when updating the database.');location.href='/Home/Create';</script>");
             }
         }
 
@@ -278,10 +340,8 @@ namespace PersonalWebsite.Controllers
                     string ID = Request["hiddenID"];
                     string date = Request["hiddenDate"];
                     string titleStr = title + "猋"; //用生僻字当作标签，防止标题显示出错
-                    string hiddenContent = Request["hiddenContent"].Replace("+", "%2B");
-                    string hiddenContent1 = Request["hiddenContent1"].Replace("+", "%2B");
-                    string articleContent = HttpUtility.UrlDecode(hiddenContent);
-                    string Markdown = HttpUtility.UrlDecode(hiddenContent1);
+                    string articleContent = HttpUtility.UrlDecode(Request["hiddenContent"]);
+                    string Markdown = HttpUtility.UrlDecode(Request["hiddenContent1"]);
                     article.ArticleDate = Convert.ToDateTime(date);
                     article.ArticleID = Convert.ToInt32(ID);
                     article.ArticleContent = articleContent;

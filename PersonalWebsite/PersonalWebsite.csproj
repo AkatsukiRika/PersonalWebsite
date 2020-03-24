@@ -277,6 +277,7 @@
     <Compile Include="Models\ViewArticle.cs" />
     <Compile Include="Models\ViewNews.cs" />
     <Compile Include="Models\ViewPost.cs" />
+    <Compile Include="Models\ViewQuestion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -916,6 +917,7 @@
     <Content Include="Content\layui\font\iconfont.ttf" />
     <Content Include="Content\layui\font\iconfont.woff" />
     <Content Include="Content\layui\font\iconfont.woff2" />
+    <Content Include="Files\questions.json" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Images\1.jpg" />
     <Content Include="Images\1_index2.jpg" />
@@ -1035,7 +1037,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Files\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
