@@ -8,7 +8,7 @@
     }
 
     .mask {
-        position: absolute;
+        position: fixed;
         top: 0;
         bottom: 0;
         left: 0;
@@ -138,7 +138,7 @@
                                     <!--若ImgSrc不为NoImg，则显示图片-->
                                     @if (!ImgSrc.Equals("NoImg"))
                                     {
-                                    <img src="../../Files/@ImgSrc" alt="" />
+                                        <img src="../../Files/@ImgSrc" alt="" />
                                     }
                                 </td>
                                 }
