@@ -281,6 +281,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="script.sql" />
     <Content Include="Content\adminStyle.css" />
     <Content Include="Content\build\css\app.css" />
     <Content Include="Content\build\css\doc.css" />

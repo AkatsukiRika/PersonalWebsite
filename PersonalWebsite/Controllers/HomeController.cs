@@ -170,13 +170,13 @@ namespace PersonalWebsite.Controllers
                    select p;
             //分页显示
             post = post.OrderByDescending(p => p.PostID);
-            const int pageItems = 10;
-            int currentPage = (page ?? 1);
-            IPagedList<Post> pagePost = post.ToPagedList(currentPage, pageItems);
-            ViewPost vpost = new ViewPost();
-            vpost.PostList = pagePost;
+            //const int pageItems = 10;
+            //int currentPage = (page ?? 1);
+            //IPagedList<Post> pagePost = post.ToPagedList(currentPage, pageItems);
+            //ViewPost vpost = new ViewPost();
+            //vpost.PostList = pagePost;
 
-            return View(vpost);
+            return View(post);
         }
 
         /// <summary>
