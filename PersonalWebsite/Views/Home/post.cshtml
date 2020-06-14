@@ -1,5 +1,7 @@
 ﻿@model PersonalWebsite.Models.ViewPost
+@using PagedList.Mvc
 
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 <style>
     #main {
         overflow: hidden;
@@ -112,14 +114,14 @@
                     <table class="ta1">
                         <caption>All the posts are sorted by the order of time.</caption>
 
-                        @foreach(var item in Model.PostList)
+                        @foreach (var item in Model.PostList)
                         {
                             string TableHead = Html.DisplayFor(modelItem => item.TableHead).ToString();
                             string TableData = Html.DisplayFor(modelItem => item.TableData).ToString();
                             string TamidashiBit = Html.DisplayTextFor(modelItem => item.Tamidashi).ToString();
                             string Tamidashi = "colspan=\"2\" class=\"tamidashi\"";
                             string ImgSrc = Html.DisplayFor(modelItem => item.ImgSrc).ToString();
-                            if(TamidashiBit.Equals("False"))
+                            if (TamidashiBit.Equals("False"))
                             {
                                 Tamidashi = "";
                             }
@@ -133,18 +135,23 @@
                                 <th @Html.Raw(Tamidashi)> @TableHead</th>
                                 @if (TamidashiBit.Equals("False"))
                                 {
-                                <td>
-                                    @Html.Raw(Html.Encode(TableData).Replace("\n", "<br />"))
-                                    <!--若ImgSrc不为NoImg，则显示图片-->
-                                    @if (!ImgSrc.Equals("NoImg"))
-                                    {
-                                        <img src="../../Files/@ImgSrc" alt="" />
-                                    }
-                                </td>
+                                    <td>
+                                        @Html.Raw(Html.Encode(TableData).Replace("\n", "<br />"))
+                                        <!--若ImgSrc不为NoImg，则显示图片-->
+                                        @if (!ImgSrc.Equals("NoImg"))
+                                        {
+                                            <img src="../../Files/@ImgSrc" alt="" />
+                                        }
+                                    </td>
                                 }
                             </tr>
                         }
                     </table>
+
+                    <div>
+                        Page @(Model.PostList.PageCount < Model.PostList.PageNumber ? 0 : Model.PostList.PageNumber) of @Model.PostList.PageCount
+                        @Html.PagedListPager(Model.PostList, page => Url.Action("Post", new { page }))
+                    </div>
 
                 </section>
 
