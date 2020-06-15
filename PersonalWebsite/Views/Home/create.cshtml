@@ -29,32 +29,9 @@
         <div id="contents">
 
             <div id="main">
-
                 <section>
-
-                    @using (Html.BeginForm())
-                    {
-                        @Html.AntiForgeryToken()
-                        @Html.ValidationSummary(true)
-
-                        <h2>Create</h2>
-                        <div id="test-editormd">
-                            @Html.TextArea("articleContent")
-                            <input type="hidden" id="hiddenContent" name="hiddenContent" />
-                            <input type="hidden" id="hiddenContent1" name="hiddenContent1" />
-                            <!--<textarea id="articleContent" style="display: none;"></textarea>-->
-                        </div>
-                        <center>
-                            <div id="settings">
-                                Article Title: @Html.TextBox("title")<br />
-                                Article Type: @Html.TextBoxFor(model => model.ArticleType, new { @style = "size: 30" })
-                            </div>
-                            <input class="btn" type="submit" onclick="btnSave()" value="Save" />
-                        </center>
-
-                    }
+                    <h2>Create</h2>
                 </section>
-
             </div>
             <!--/#main-->
 
@@ -62,6 +39,27 @@
 
             </div>
             <!--/#sub-->
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+
+                <div id="test-editormd">
+                    @Html.TextArea("articleContent")
+                    <input type="hidden" id="hiddenContent" name="hiddenContent" />
+                    <input type="hidden" id="hiddenContent1" name="hiddenContent1" />
+                    <!--<textarea id="articleContent" style="display: none;"></textarea>-->
+                </div>
+                <center>
+                    <div id="settings">
+                        Article Title: @Html.TextBox("title")<br />
+                        Article Type: @Html.TextBoxFor(model => model.ArticleType, new { @style = "size: 30" })
+                    </div>
+                    <input class="btn" type="submit" onclick="btnSave()" value="Save" />
+                </center>
+
+            }
 
         </div>
         <!--/#contents-->
