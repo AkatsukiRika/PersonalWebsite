@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Editor.md
  *
  * @file        editormd.preview.css 
@@ -2584,27 +2584,27 @@
 }
 
 .markdown-body h1 {
-  font-size: 30px;
+  font-size: 30px !important;
 }
 
 .markdown-body h2 {
-  font-size: 21px;
+  font-size: 21px !important;
 }
 
 .markdown-body h3 {
-  font-size: 16px;
+    font-size: 16px !important;
 }
 
 .markdown-body h4 {
-  font-size: 14px;
+    font-size: 14px !important;
 }
 
 .markdown-body h5 {
-  font-size: 12px;
+    font-size: 12px !important;
 }
 
 .markdown-body h6 {
-  font-size: 11px;
+    font-size: 11px !important;
 }
 
 .markdown-body blockquote {

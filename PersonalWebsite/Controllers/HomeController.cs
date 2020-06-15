@@ -359,7 +359,8 @@ namespace PersonalWebsite.Controllers
             }
             catch (Exception e)
             {
-                return Content("<script>alert('Error occurred when updating the database.');location.href='/Home/Create';</script>");
+                return Content(e.ToString());
+                //return Content("<script>alert('Error occurred when updating the database.');location.href='/Home/Create';</script>");
             }
         }
 

@@ -1,8 +1,10 @@
 ﻿@model PersonalWebsite.Models.Article
 
+<link href="~/lib/markdown/css/editormd.preview.css" rel="stylesheet" />
 <link href="~/Lib/Markdown/css/editormd.css" rel="stylesheet" />
-<link href="~/Lib/Markdown/css/editormd.preview.css" rel="stylesheet" />
 <script src="~/Lib/Markdown/js/editormd.js"></script>
+<script src="~/Lib/Markdown/lib/marked.min.js"></script>
+<script src="~/Lib/Markdown/lib/prettify.min.js"></script>
 
 <script>
     $(function () {
@@ -11,8 +13,7 @@
             height: 640,
             syncScrolling: "single",
             path: "/Lib/Markdown/lib/",
-            saveHTMLToTextarea: true,
-            emoji: true
+            saveHTMLToTextarea: true
         });
     });
 
@@ -29,44 +30,35 @@
         <div id="contents">
 
             <div id="main">
-
                 <section>
-
-                    @using (Html.BeginForm())
-                    {
-                        @Html.AntiForgeryToken()
-                        @Html.ValidationSummary(true)
-                        string[] ArticleContent = Model.ArticleContent.Split('猋');
-                        string Markdown = Model.Markdown;
-
-                        <h2>Edit</h2>
-                        <div id="test-editormd">
-                            @Html.TextArea("articleContent", Markdown)
-                            <input type="hidden" id="hiddenDate" name="hiddenDate" value="@Model.ArticleDate" />
-                            <input type="hidden" id="hiddenID" name="hiddenID" value="@Model.ArticleID" />
-                            <input type="hidden" id="hiddenContent" name="hiddenContent" />
-                            <input type="hidden" id="hiddenContent1" name="hiddenContent1" />
-                            <!--<textarea id="articleContent" style="display: none;"></textarea>-->
-                        </div>
-                        <center>
-                            <div id="settings">
-                                Article Title: @Html.TextBox("title", ArticleContent[0])<br />
-                                Article Type: @Html.TextBoxFor(model => model.ArticleType, new { @style = "size: 30" })
-                            </div>
-                            <input class="btn" type="submit" onclick="btnSave()" value="Save" />
-                        </center>
-                    }
-                    <!--
                     <h2>Edit</h2>
-                    <div id="test-editormd">
-                        <textarea id="articleContent" style="display: none;">Html.Raw(Model.ArticleContent.Split('猋')[1])</textarea>
-                    </div>
-                    <center><input class="btn" type="submit" onclick="btnSave()" value="Save" /></center>
-                    -->
                 </section>
-
             </div>
             <!--/#main-->
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+                string[] ArticleContent = Model.ArticleContent.Split('猋');
+                string Markdown = Model.Markdown;
+
+                <div id="test-editormd">
+                    @Html.TextArea("articleContent", Markdown)
+                    <input type="hidden" id="hiddenDate" name="hiddenDate" value="@Model.ArticleDate" />
+                    <input type="hidden" id="hiddenID" name="hiddenID" value="@Model.ArticleID" />
+                    <input type="hidden" id="hiddenContent" name="hiddenContent" />
+                    <input type="hidden" id="hiddenContent1" name="hiddenContent1" />
+                    <!--<textarea id="articleContent" style="display: none;"></textarea>-->
+                </div>
+                <center>
+                    <div id="settings">
+                        Article Title: @Html.TextBox("title", ArticleContent[0])<br />
+                        Article Type: @Html.TextBoxFor(model => model.ArticleType, new { @style = "size: 30" })
+                    </div>
+                    <input class="btn" type="submit" onclick="btnSave()" value="Save" />
+                </center>
+            }
 
             <div id="sub">
 
@@ -81,7 +73,6 @@
 
     </div>
     <!--/#container-->
-
     <!--ページの上部に戻る「↑」ボタン-->
     <p class="nav-fix-pos-pagetop"><a href="#">↑</a></p>
 
